@@ -70,6 +70,8 @@ GTK_REQUIRED=3.3.16
 GLIB_REQUIRED=2.37.3
 XRANDR_REQUIRED=1.3
 XEXT_REQUIRED=1.1
+LIBNOTIFY_REQUIRED_VERSION=0.7.3
+POLKIT_REQUIRED_VERSION=0.103
 
 AC_SUBST(GTK_REQUIRED)
 AC_SUBST(GLIB_REQUIRED)
@@ -109,6 +111,16 @@ PKG_CHECK_MODULES(CINNAMON_DESKTOP, gdk-pixbuf-2.0 >= $GDK_PIXBUF_REQUIRED
                                     xkbfile)
 
 PKG_CHECK_MODULES(CVC, gio-2.0 libpulse libpulse-mainloop-glib gobject-2.0)
+PKG_CHECK_MODULES(TZMAP, gtk+-3.0 >= $GTK_REQUIRED
+                         glib-2.0 >= $GLIB_REQUIRED
+                         gthread-2.0
+                         gio-2.0
+                         gio-unix-2.0
+                         cinnamon-desktop
+                         libnotify >= $LIBNOTIFY_REQUIRED_VERSION
+                         dbus-glib-1
+                         polkit-gobject-1 >= $POLKIT_REQUIRED_VERSION
+                         gdk-pixbuf-2.0 >= $GDK_PIXBUF_REQUIRED)
 
 XKB_BASE=$($PKG_CONFIG --variable xkb_base xkeyboard-config)
 AC_SUBST(XKB_BASE)
@@ -150,6 +162,7 @@ libcinnamon-desktop/cinnamon-desktop-uninstalled.pc
 libcvc/Makefile
 libcvc/cvc.pc
 libcvc/cvc-uninstalled.pc
+libtzmap/Makefile
 schemas/Makefile
 po/Makefile.in
 files/Makefile
@@ -162,7 +175,7 @@ dnl - Show summary
 dnl ---------------------------------------------------------------------------
 
 echo "
-              
+
         prefix:                       ${prefix}
         exec_prefix:                  ${exec_prefix}
         libdir:                       ${libdir}

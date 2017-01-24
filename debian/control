@@ -117,3 +117,42 @@ Depends: libcvc0 (= ${binary:Version}), ${misc:Depends}
 Description: Utility library for volume control of pulseaudio from gobject-based
  Cinnamon modules/applications.  This package contains the symbols files needed to
  debug the Cvc library.
+
+Package: libtzmap0
+Section: libs
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Description: Utility library for volume control of pulseaudio from gobject-based
+ Cinnamon modules/applications.
+
+Package: libtzmap-dev
+Section: libdevel
+Architecture: any
+Pre-Depends: ${misc:Pre-Depends}
+Depends: gir1.2-tzmap-1.0 (= ${binary:Version}),
+         libtzmap0 (= ${binary:Version}),
+         ${misc:Depends}
+Description: Utility library for volume control of pulseaudio from gobject-based
+ Cinnamon modules/applications.  This package provides the include files and static
+ library for tzmap.
+
+Package: gir1.2-tzmap-1.0
+Section: introspection
+Architecture: any
+Depends: ${gir:Depends}, ${misc:Depends}, ${shlibs:Depends}
+Description: Utility library for volume control of pulseaudio from gobject-based
+ Cinnamon modules/applications.  This package contains the introspection data for TZMap.
+
+Package: libtzmap-dbg
+Section: debug
+Priority: extra
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: libtzmap0 (= ${binary:Version}), ${misc:Depends}
+Description: Utility library for volume control of pulseaudio from gobject-based
+ Cinnamon modules/applications.  This package contains the symbols files needed to
+ debug the TZMap library.

@@ -1,0 +1,4 @@
+usr/include/cinnamon-desktop/libtzmap
+usr/lib/*/libtzmap.so
+usr/lib/*/pkgconfig/tzmap.pc
+usr/share/gir-1.0/Tzmap-1.0.gir

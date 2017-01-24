@@ -1,4 +1,4 @@
-SUBDIRS = libcinnamon-desktop libcvc po schemas files
+SUBDIRS = libcinnamon-desktop libcvc libtzmap po schemas files
 
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
